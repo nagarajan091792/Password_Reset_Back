@@ -114,7 +114,7 @@ zen.post("/forgot-password", async (req, res) => {
     }
     const secret = JWT_SECRET + user.userpassword;
     const token = jwt.sign({ email: user.useremail, id: user._id }, secret, {expiresIn: "15m", });
-    const link = `http://localhost:5000/reset-password/${user._id}/${token}`;
+    const link = `https://password-reset-back.onrender.com/reset-password/${user._id}/${token}`;
     console.log(link)
     var transporter = nodemailer.createTransport({
       service: "gmail",
